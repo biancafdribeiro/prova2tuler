@@ -116,7 +116,7 @@ public class ConsultaAgendada {
     }
 
     // Métodos get
-    public int getAmostra() {
+    public static int getAmostra() {
         return quantidade;
     }
 

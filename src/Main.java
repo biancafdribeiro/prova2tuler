@@ -1,35 +1,68 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        // Inicializa o Scanner para entrada do usuário
+        Scanner sc = new Scanner(System.in);
+        StringBuilder resultado = new StringBuilder();
 
-        //objeto p1: construtor ConsultaAgendada (int h, int mi, int s, int d, int m, int a, String p, String m)
-        ConsultaAgendada p1 = new ConsultaAgendada(10, 05, 30, 15, 06, 2024, "Bianca Fonseca", "Juvenildo Reis");
-        System.out.println("Consulta 1: ");
-        System.out.println("Data da consulta: " + p1.getData());
-        System.out.println("Hora da consulta: " + p1.getHora());
-        System.out.println("Nome do paciente: " + p1.getNomePaciente());
-        System.out.println("Nome do médico: " + p1.getNomeMedico());
-        System.out.println("Total de consultas agendadas: " + p1.getAmostra());
-        System.out.println("---------------------------------------");
+        // Passo 1: Instancia o objeto p1
+        ConsultaAgendada p1 = new ConsultaAgendada(10, 30, 0, 15, 8, 2024, "João da Silva", "Dr. Pedro");
 
-        //objeto p2: construtor ConsultaAgendada()
-        System.out.println("Consulta 2: ");
+        // Adiciona as propriedades de p1 ao resultado
+        resultado.append("Propriedades de p1:\n");
+        resultado.append("Data: ").append(p1.getData()).append("\n");
+        resultado.append("Hora: ").append(p1.getHora()).append("\n");
+        resultado.append("Nome do Paciente: ").append(p1.getNomePaciente()).append("\n");
+        resultado.append("Nome do Médico: ").append(p1.getNomeMedico()).append("\n");
+        resultado.append("Total de consultas agendadas: ").append(ConsultaAgendada.getAmostra());
+        resultado.append("_________________________________________________________");
+        resultado.append("\n");
+
+        // Passo 2: Instancia o objeto p2
         ConsultaAgendada p2 = new ConsultaAgendada();
-        System.out.println("Data da consulta: " + p2.getData());
-        System.out.println("Hora da consulta: " + p2.getHora());
-        System.out.println("Nome do paciente: " + p2.getNomePaciente());
-        System.out.println("Nome do médico: " + p2.getNomeMedico());
-        System.out.println("Total de consultas agendadas: " + p2.getAmostra());    
-        System.out.println("---------------------------------------");
 
-        System.out.println("Mudando as informações da consulta 1...");
+        // Adiciona as propriedades de p2 ao resultado
+        resultado.append("Propriedades de p2:\n");
+        resultado.append("Data: ").append(p2.getData()).append("\n");
+        resultado.append("Hora: ").append(p2.getHora()).append("\n");
+        resultado.append("Nome do Paciente: ").append(p2.getNomePaciente()).append("\n");
+        resultado.append("Nome do Médico: ").append(p2.getNomeMedico()).append("\n");
+        resultado.append("Total de consultas agendadas: ").append(ConsultaAgendada.getAmostra());
+        resultado.append("_________________________________________________________");
+        resultado.append("\n");
+
+        // Passo 3: Altera as propriedades de p1
         p1.setData();
         p1.setHora();
         p1.setNomePaciente();
         p1.setNomeMedico();
-        System.out.println("Data da consulta: " + p1.getData());
-        System.out.println("Hora da consulta: " + p1.getHora());
-        System.out.println("Nome do paciente: " + p1.getNomePaciente());
-        System.out.println("Nome do médico: " + p1.getNomeMedico());
-        System.out.println("Total de consultas agendadas: " + p1.getAmostra());
+
+        // Adiciona as propriedades alteradas de p1 ao resultado
+        resultado.append("Propriedades de p1 após alteração:\n");
+        resultado.append("Data: ").append(p1.getData()).append("\n");
+        resultado.append("Hora: ").append(p1.getHora()).append("\n");
+        resultado.append("Nome do Paciente: ").append(p1.getNomePaciente()).append("\n");
+        resultado.append("Nome do Médico: ").append(p1.getNomeMedico()).append("\n");
+        resultado.append("Total de consultas agendadas: ").append(ConsultaAgendada.getAmostra());
+        resultado.append("_________________________________________________________");
+        resultado.append("\n");
+
+        // Passo 4: Exibe a quantidade final de consultas
+        resultado.append("Quantidade final de consultas: ").append(ConsultaAgendada.getAmostra()).append("\n");
+
+        // Exibe o resultado no console
+        System.out.println(resultado.toString());
+
+        // Escreve o resultado em um arquivo texto
+        try (PrintWriter writer = new PrintWriter(new FileWriter("resultado.txt"))) {
+            writer.write(resultado.toString());
+            System.out.println("Resultados escritos no arquivo 'resultado.txt'.");
+        } catch (IOException e) {
+            System.out.println("Erro ao escrever o arquivo: " + e.getMessage());
+        }
     }
 }
