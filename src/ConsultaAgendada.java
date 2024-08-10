@@ -1,19 +1,17 @@
 import java.util.Scanner;
 
 public class ConsultaAgendada {
-    // Atributos
+    // atributos
     private Data data;
     private Hora hora;
     private String nomePaciente;
     private String nomeMedico;
     private static int quantidade = 0;
 
-    // Construtor padrão
-    //** eu não entendi se é isso mesmo nesse construtor, se precisa pedir pro usuário digitar os valores ou não?/
+    // construtor padrão que permite o usuário digitar valores
     public ConsultaAgendada() {
         Scanner sc = new Scanner(System.in);
         
-        // Solicita dados para a data
         System.out.print("Digite o dia: ");
         int dia = sc.nextInt();
         System.out.print("Digite o mês: ");
@@ -22,7 +20,6 @@ public class ConsultaAgendada {
         int ano = sc.nextInt();
         this.data = new Data(dia, mes, ano);
         
-        // Solicita dados para a hora
         System.out.print("Digite a hora: ");
         int hora = sc.nextInt();
         System.out.print("Digite o minuto: ");
@@ -31,19 +28,20 @@ public class ConsultaAgendada {
         int segundo = sc.nextInt();
         this.hora = new Hora(hora, minuto, segundo);
         
-        // Limpa o buffer do scanner
-        sc.nextLine(); // Consome a nova linha deixada pelo nextInt()
+        sc.nextLine(); // Limpar o buffer
         
-        // Solicita dados para o paciente e médico
+        // Ler e validar nome do paciente
         System.out.print("Digite o nome do paciente: ");
-        this.nomePaciente = sc.nextLine();
+        this.nomePaciente = lerNomeValido();
+        
+        // Ler e validar nome do médico
         System.out.print("Digite o nome do médico: ");
-        this.nomeMedico = sc.nextLine();
+        this.nomeMedico = lerNomeValido();
         
         quantidade++;
     }
 
-    // Construtor com parâmetros para hora, minuto, segundo, dia, mês, ano, paciente e médico
+    // construtor com parâmetros para hora, minuto, segundo, dia, mês, ano, paciente e médico
     public ConsultaAgendada(int h, int mi, int s, int d, int m, int a, String p, String med) {
         this.hora = new Hora(h, mi, s);
         this.data = new Data(d, m, a);
@@ -52,7 +50,7 @@ public class ConsultaAgendada {
         quantidade++;
     }
 
-    // Construtor com parâmetros para Data, Hora, paciente e médico
+    // construtor com parâmetros para Data, Hora, paciente e médico
     public ConsultaAgendada(Data d, Hora h, String p, String m) {
         this.data = d;
         this.hora = h;
@@ -61,7 +59,8 @@ public class ConsultaAgendada {
         quantidade++;
     }
 
-    // Métodos set para Data
+    // métodos set para alterar os valores
+
     public void setData(int d, int m, int a) {
         this.data = new Data(d, m, a);
     }
@@ -72,7 +71,6 @@ public class ConsultaAgendada {
         this.data.setAno();
     }
 
-    // Métodos set para Hora
     public void setHora(int h, int mi, int s) {
         this.hora.setHora(h);
         this.hora.setMinuto(mi);
@@ -91,9 +89,7 @@ public class ConsultaAgendada {
         // Atualiza o atributo hora com os novos valores
         this.hora = new Hora(hora, minuto, segundo);
     }
-    
 
-    // Métodos set para Nome do Paciente
     public void setNomePaciente(String p) {
         this.nomePaciente = p;
     }
@@ -101,10 +97,9 @@ public class ConsultaAgendada {
     public void setNomePaciente() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Digite o nome do paciente: ");
-        this.nomePaciente = sc.nextLine();
+        this.nomePaciente = lerNomeValido();
     }
 
-    // Métodos set para Nome do Médico
     public void setNomeMedico(String m) {
         this.nomeMedico = m;
     }
@@ -112,20 +107,21 @@ public class ConsultaAgendada {
     public void setNomeMedico() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Digite o nome do médico: ");
-        this.nomeMedico = sc.nextLine();
+        this.nomeMedico = lerNomeValido();
     }
 
-    // Métodos get
+    // métodos get para retornar valores
+
     public static int getAmostra() {
         return quantidade;
     }
 
     public String getData() {
-        return this.data.mostra1(); // Assumindo que mostra1() está no formato dd/mm/aaaa
+        return this.data.mostra1(); 
     }
 
     public String getHora() {
-        return this.hora.mostra(); // Assumindo que mostra() retorna no formato hh:mm:ss
+        return this.hora.mostra(); 
     }
 
     public String getNomePaciente() {
@@ -134,5 +130,19 @@ public class ConsultaAgendada {
 
     public String getNomeMedico() {
         return this.nomeMedico;
+    }
+    
+    // Método para ler e validar o nome
+    private String lerNomeValido() {
+        Scanner sc = new Scanner(System.in);
+        String nome;
+        while (true) {
+            nome = sc.nextLine();
+            if (!nome.matches(".*\\d.*")) {
+                break;
+            }
+            System.out.print("Nome inválido. O nome não pode conter números. Digite novamente: ");
+        }
+        return nome;
     }
 }

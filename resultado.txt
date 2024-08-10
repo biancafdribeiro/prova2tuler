@@ -1,19 +1,23 @@
+------------------------------
 Propriedades de p1:
 Data: 15/08/2024
 Hora: 10:30:00
 Nome do Paciente: João da Silva
 Nome do Médico: Dr. Pedro
-
+Total de consultas agendadas: 1
+------------------------------
 Propriedades de p2:
 Data: 16/06/2024
-Hora: 05:04:02
-Nome do Paciente: bi
-Nome do Médico: vi
-
+Hora: 10:00:00
+Nome do Paciente: Bianca
+Nome do Médico: Renata
+Total de consultas agendadas: 2
+------------------------------
 Propriedades de p1 após alteração:
-Data: 05/04/2007
-Hora: 09:10:50
-Nome do Paciente: t
-Nome do Médico: p
-
+Data: 16/06/2023
+Hora: 10:00:00
+Nome do Paciente: Paula
+Nome do Médico: JoÆo
+Total de consultas agendadas: 2
+------------------------------
 Quantidade final de consultas: 2

@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Hora {
@@ -5,53 +6,97 @@ public class Hora {
     private int minuto;
     private int segundo;
 
-    // Construtor com parâmetros
+    //construtor com parâmetros
     public Hora(int h, int mi, int s) {
-        this.hora = h;
-        this.minuto = mi;
-        this.segundo = s;
+        setHora(h);
+        setMinuto(mi);
+        setSegundo(s);
     }
 
-    // Construtor padrão
+    //construtor padrão
     public Hora() {
         this.hora = 0;
         this.minuto = 0;
         this.segundo = 0;
     }
 
-    // Métodos set para Hora, Minuto e Segundo com parâmetros
+    //métodos set com parâmetros
     public void setHora(int h) {
-        this.hora = h;
+        if (h >= 0 && h <= 23) {
+            this.hora = h;
+        } else {
+            throw new IllegalArgumentException("Hora inválida. Deve estar entre 0 e 23.");
+        }
     }
 
     public void setMinuto(int mi) {
-        this.minuto = mi;
+        if (mi >= 0 && mi <= 59) {
+            this.minuto = mi;
+        } else {
+            throw new IllegalArgumentException("Minuto inválido. Deve estar entre 0 e 59.");
+        }
     }
 
     public void setSegundo(int s) {
-        this.segundo = s;
+        if (s >= 0 && s <= 59) {
+            this.segundo = s;
+        } else {
+            throw new IllegalArgumentException("Segundo inválido. Deve estar entre 0 e 59.");
+        }
     }
 
-    // Métodos set sem parâmetros (opcional)
+    //métodos set sem parâmetros
     public void setHora() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Digite a hora: ");
-        this.hora = sc.nextInt();
+        while (true) {
+            try {
+                System.out.print("Digite a hora: ");
+                int h = sc.nextInt();
+                setHora(h);
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Digite um número inteiro.");
+                sc.next(); // Limpar o buffer
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     public void setMinuto() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Digite o minuto: ");
-        this.minuto = sc.nextInt();
+        while (true) {
+            try {
+                System.out.print("Digite o minuto: ");
+                int mi = sc.nextInt();
+                setMinuto(mi);
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Digite um número inteiro.");
+                sc.next(); // Limpar o buffer
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     public void setSegundo() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Digite o segundo: ");
-        this.segundo = sc.nextInt();
+        while (true) {
+            try {
+                System.out.print("Digite o segundo: ");
+                int s = sc.nextInt();
+                setSegundo(s);
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Digite um número inteiro.");
+                sc.next(); // Limpar o buffer
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
-    // Método para mostrar a hora no formato hh:mm:ss
     public String mostra() {
         return String.format("%02d:%02d:%02d", this.hora, this.minuto, this.segundo);
     }

@@ -31,7 +31,7 @@ public class Data {
                 }
             } catch (Exception e) {
                 System.out.println("Entrada inválida, tente novamente.");
-                sc.next(); //limpar o buffer do scanner
+                sc.next(); 
             }
         }
     }
