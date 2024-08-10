@@ -1,0 +1,9 @@
+Consulta 1: 
+Data da consulta: 15/06/2024
+Hora da consulta: 10:05:30
+Nome do paciente: Bianca Fonseca
+Nome do médico: Juvenildo Reis
+Total de consultas agendadas: 1
+---------------------------------------
+Consulta 2: 
+Digite o dia: 

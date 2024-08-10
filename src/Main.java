@@ -1,53 +1,35 @@
 public class Main {
     public static void main(String[] args) {
 
-        //usando o construtor Data()
-        Data dataDigitada1 = new Data();
-        System.out.println("Data formatada 1: " + dataDigitada1.mostra1());
-        System.out.println("Data formatada 2: " + dataDigitada1.mostra2());
-        System.out.println("Ano bissexto: " + dataDigitada1.bissexto());
-        System.out.println("Dias transcorridos: " + dataDigitada1.diasTranscorridos());
-        dataDigitada1.apresentaDataAtual();
+        //objeto p1: construtor ConsultaAgendada (int h, int mi, int s, int d, int m, int a, String p, String m)
+        ConsultaAgendada p1 = new ConsultaAgendada(10, 05, 30, 15, 06, 2024, "Bianca Fonseca", "Juvenildo Reis");
+        System.out.println("Consulta 1: ");
+        System.out.println("Data da consulta: " + p1.getData());
+        System.out.println("Hora da consulta: " + p1.getHora());
+        System.out.println("Nome do paciente: " + p1.getNomePaciente());
+        System.out.println("Nome do médico: " + p1.getNomeMedico());
+        System.out.println("Total de consultas agendadas: " + p1.getAmostra());
+        System.out.println("---------------------------------------");
 
-        //usando o construtor Data() e mudando os valores com os métodos de entrada com parâmetros
-        System.out.println("----------------------------------------");
-        Data dataDigitada2 = new Data();
-        dataDigitada2.setDia(15);
-        dataDigitada2.setMes(12);
-        dataDigitada2.setAno(2024);
-        System.out.println("Modificando a data...");
-        System.out.println("Data formatada 1: " + dataDigitada2.mostra1());
-        System.out.println("Data formatada 2: " + dataDigitada2.mostra2());
-        System.out.println("Ano bissexto: " + dataDigitada2.bissexto());
-        System.out.println("Dias transcorridos: " + dataDigitada2.diasTranscorridos());
-        dataDigitada2.apresentaDataAtual();
+        //objeto p2: construtor ConsultaAgendada()
+        System.out.println("Consulta 2: ");
+        ConsultaAgendada p2 = new ConsultaAgendada();
+        System.out.println("Data da consulta: " + p2.getData());
+        System.out.println("Hora da consulta: " + p2.getHora());
+        System.out.println("Nome do paciente: " + p2.getNomePaciente());
+        System.out.println("Nome do médico: " + p2.getNomeMedico());
+        System.out.println("Total de consultas agendadas: " + p2.getAmostra());    
+        System.out.println("---------------------------------------");
 
-        //usando o construtor Data() e os métodos de entrada sem parâmetros
-        //com esses métodos, o programa acaba pedindo para o usuário digitar a data duas vezes
-        System.out.println("----------------------------------------");
-        Data dataDigitada3 = new Data();
-        dataDigitada3.setDia();
-        dataDigitada3.setMes();
-        dataDigitada3.setAno();
-        System.out.println("Data após entrada do usuário...");
-        System.out.println("Data formatada 1: " + dataDigitada3.mostra1());
-        System.out.println("Data formatada 2: " + dataDigitada3.mostra2());
-        System.out.println("Ano bissexto: " + dataDigitada3.bissexto());
-        System.out.println("Dias transcorridos: " + dataDigitada3.diasTranscorridos());
-        dataDigitada3.apresentaDataAtual();
-
-        //usando o construtor Data(int d, int m, int a)
-        System.out.println("----------------------------------------");
-        System.out.println("Data por parâmetros: ");
-        Data dataParametros = new Data(30, 9, 2021);
-        System.out.println("Data formatada 1: " + dataParametros.mostra1());
-        System.out.println("Data formatada 2: " + dataParametros.mostra2());
-        System.out.println("Ano bissexto: " + dataParametros.bissexto());
-        System.out.println("Dias transcorridos: " + dataParametros.diasTranscorridos());
-        dataParametros.apresentaDataAtual();
-        //usando métodos retDia, retMes e retAno
-        System.out.println("Dia: " + dataParametros.getDia());
-        System.out.println("Mês: " + dataParametros.getMes());
-        System.out.println("Ano: " + dataParametros.getAno());
+        System.out.println("Mudando as informações da consulta 1...");
+        p1.setData();
+        p1.setHora();
+        p1.setNomePaciente();
+        p1.setNomeMedico();
+        System.out.println("Data da consulta: " + p1.getData());
+        System.out.println("Hora da consulta: " + p1.getHora());
+        System.out.println("Nome do paciente: " + p1.getNomePaciente());
+        System.out.println("Nome do médico: " + p1.getNomeMedico());
+        System.out.println("Total de consultas agendadas: " + p1.getAmostra());
     }
 }
