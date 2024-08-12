@@ -71,4 +71,4 @@ Para compilar e executar o projeto:
 javac Data.java Hora.java ConsultaAgendada.java Main.java
 java Main
 
-O resultado será exibido no console e salvo em um arquivo chamado resultado.txt.
+//O resultado será exibido no console e salvo em um arquivo chamado resultado.txt.
