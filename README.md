@@ -1,6 +1,3 @@
-Aqui está o README revisado para garantir que a seção final de participantes do projeto não fique dentro da seção de compilação e execução. Além disso, corrigi a formatação para garantir que tudo esteja bem estruturado:
-
-```markdown
 # README
 
 ## Descrição
@@ -81,3 +78,5 @@ O resultado será exibido no console e salvo em um arquivo chamado `resultado.tx
 
 - Bianca Fonseca Dantas Ribeiro: CB3025683
 - Vinicius do Nascimento Ayres: CB305675
+
+```
