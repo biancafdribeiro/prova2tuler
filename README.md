@@ -1,3 +1,6 @@
+Aqui está o README revisado para garantir que a seção final de participantes do projeto não fique dentro da seção de compilação e execução. Além disso, corrigi a formatação para garantir que tudo esteja bem estruturado:
+
+```markdown
 # README
 
 ## Descrição
@@ -65,13 +68,16 @@ A classe `ConsultaAgendada` representa uma consulta com data, hora, paciente e m
 
 ## Compilação e Execução
 
-Para compilar e executar o projeto:
+Para compilar e executar o projeto, use os seguintes comandos:
 
 ```bash
 javac Data.java Hora.java ConsultaAgendada.java Main.java
 java Main
+```
 
-//O resultado será exibido no console e salvo em um arquivo chamado resultado.txt.
+O resultado será exibido no console e salvo em um arquivo chamado `resultado.txt`.
 
-## Participantes do projeto
+## Participantes do Projeto
 
+- Bianca Fonseca Dantas Ribeiro: CB3025683
+- Vinicius do Nascimento Ayres: CB305675
