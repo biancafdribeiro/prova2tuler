@@ -7,7 +7,7 @@ public class ConsultaAgendada {
     private String nomePaciente;
     private String nomeMedico;
     private static int quantidade = 0;
-
+    
     // construtor padrão que permite o usuário digitar valores
     public ConsultaAgendada() {
         Scanner sc = new Scanner(System.in);
@@ -28,13 +28,10 @@ public class ConsultaAgendada {
         int segundo = sc.nextInt();
         this.hora = new Hora(hora, minuto, segundo);
         
-        sc.nextLine(); // Limpar o buffer
+        sc.nextLine(); 
         
-        // Ler e validar nome do paciente
         System.out.print("Digite o nome do paciente: ");
         this.nomePaciente = lerNomeValido();
-        
-        // Ler e validar nome do médico
         System.out.print("Digite o nome do médico: ");
         this.nomeMedico = lerNomeValido();
         
@@ -86,7 +83,6 @@ public class ConsultaAgendada {
         System.out.print("Digite o segundo: ");
         int segundo = sc.nextInt();
         
-        // Atualiza o atributo hora com os novos valores
         this.hora = new Hora(hora, minuto, segundo);
     }
 
@@ -132,7 +128,6 @@ public class ConsultaAgendada {
         return this.nomeMedico;
     }
     
-    // Método para ler e validar o nome
     private String lerNomeValido() {
         Scanner sc = new Scanner(System.in);
         String nome;

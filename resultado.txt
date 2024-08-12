@@ -7,17 +7,17 @@ Nome do Médico: Dr. Pedro
 Total de consultas agendadas: 1
 ------------------------------
 Propriedades de p2:
-Data: 16/06/2024
-Hora: 10:00:00
+Data: 16/05/2024
+Hora: 01:04:07
 Nome do Paciente: Bianca
-Nome do Médico: Renata
+Nome do Médico: Vin¡cius
 Total de consultas agendadas: 2
 ------------------------------
 Propriedades de p1 após alteração:
-Data: 16/06/2023
-Hora: 10:00:00
-Nome do Paciente: Paula
-Nome do Médico: JoÆo
+Data: 07/05/2021
+Hora: 08:06:03
+Nome do Paciente: Renata
+Nome do Médico: Paulo
 Total de consultas agendadas: 2
 ------------------------------
 Quantidade final de consultas: 2
